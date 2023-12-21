@@ -20,9 +20,4 @@ public class Auto extends Voertuig {
         return Objects.equals(kenteken, auto.kenteken);
     }
 
-    @Override
-    public String toString() {
-        return "Voertuig: " + super.toString() +
-                " met kenteken '" + kenteken + "'.";
-    }
 }

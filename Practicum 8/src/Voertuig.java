@@ -13,4 +13,9 @@ public class Voertuig  implements Goed{
     public double huidigeWaarde() {
         return nieuwprijs * Math.pow(0.7, (2023 - bouwjaar));
     }
+
+    @Override
+    public String toString() {
+        return String.format("Voertuig: %s met bouwjaar %d heeft een waarde van: €%.2f.", type, bouwjaar, huidigeWaarde());
+    }
 }

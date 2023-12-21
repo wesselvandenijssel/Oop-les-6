@@ -19,10 +19,4 @@ public class Fiets extends Voertuig{
         Fiets fiets = (Fiets) obj;
         return framenummer == fiets.framenummer;
     }
-
-    @Override
-    public String toString() {
-        return "Fiets: " + super.toString() +
-                " met framenummer '" + framenummer + "'.";
-    }
 }
