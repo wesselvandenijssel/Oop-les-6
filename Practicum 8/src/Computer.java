@@ -22,8 +22,13 @@ public class Computer implements Goed {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Computer computer = (Computer) obj;
-        return Double.compare(aanschafPrijs, computer.aanschafPrijs) == 0 && productieJaar == computer.productieJaar && Objects.equals(type, computer.type) && Objects.equals(macAdres, computer.macAdres);
+
+        return Double.compare(aanschafPrijs, computer.aanschafPrijs) == 0 &&
+                productieJaar == computer.productieJaar &&
+                Objects.equals(type, computer.type) &&
+                Objects.equals(macAdres, computer.macAdres);
     }
+
 
     @Override
     public String toString() {
