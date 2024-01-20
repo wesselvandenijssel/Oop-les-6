@@ -1,4 +1,4 @@
-public class Voertuig  implements Goed{
+public class Voertuig implements Goed{
     private String type;
     protected double nieuwprijs;
     protected int bouwjaar;
