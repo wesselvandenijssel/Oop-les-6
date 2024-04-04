@@ -12,12 +12,22 @@ public abstract class Voertuig implements Goed{
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Voertuig voertuig = (Voertuig) o;
-        return Double.compare(nieuwprijs, voertuig.nieuwprijs) == 0 && bouwjaar == voertuig.bouwjaar && Objects.equals(type, voertuig.type);
+    public boolean equals(Object andereObject) {
+        boolean gelijkeObjecten = false;
+
+        if (andereObject instanceof Voertuig) {
+            Voertuig andereVoertuig = (Voertuig) andereObject;
+
+            if (this.type.equals(andereVoertuig.type) &&
+                    this.bouwjaar == andereVoertuig.bouwjaar &&
+                    this.nieuwprijs == andereVoertuig.nieuwprijs) {
+                gelijkeObjecten = true;
+            }
+
+        }
+        return gelijkeObjecten;
     }
+    
     @Override
     public String toString() {
         return String.format("Voertuig: %s met bouwjaar %d heeft een waarde van: €%.2f.", type, bouwjaar, huidigeWaarde());

@@ -17,16 +17,22 @@ public class Computer implements Goed {
         return aanschafPrijs * Math.pow(0.6, (2023 - productieJaar));
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Computer computer = (Computer) obj;
+   @Override
+    public boolean equals(Object andereObject) {
+        boolean gelijkeObjecten = false;
 
-        return Double.compare(aanschafPrijs, computer.aanschafPrijs) == 0 &&
-                productieJaar == computer.productieJaar &&
-                Objects.equals(type, computer.type) &&
-                Objects.equals(macAdres, computer.macAdres);
+        if (andereObject instanceof Computer) {
+            Computer andereComputer = (Computer) andereObject;
+
+            if (this.type.equals(andereComputer.type) &&
+                    this.macAdres.equals(andereComputer.macAdres) &&
+                    this.aanschafPrijs == andereComputer.aanschafPrijs &&
+                    this.productieJaar == andereComputer.productieJaar) {
+                gelijkeObjecten = true;
+            }
+
+        }
+        return gelijkeObjecten;
     }
 
 

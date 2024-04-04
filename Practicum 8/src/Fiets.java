@@ -16,24 +16,18 @@ public class Fiets extends Voertuig {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+    public boolean equals(Object andereObject){
+        boolean gelijkeObjecten = false;
 
-        Fiets otherFiets = (Fiets) obj;
+        if(andereObject instanceof Fiets){
+            Fiets andereFiets = (Fiets) andereObject;
 
-        try {
-            Field typeField = Voertuig.class.getDeclaredField("type");
-            typeField.setAccessible(true);
+            if (super.equals(andereFiets) &&
+                    this.framenummer == andereFiets.framenummer){
+                gelijkeObjecten = true;
+            }
 
-            // Vergelijk alle attributen, inclusief het framenummer
-            return nieuwprijs == otherFiets.nieuwprijs &&
-                    bouwjaar == otherFiets.bouwjaar &&
-                    Objects.equals(typeField.get(this), typeField.get(otherFiets)) &&
-                    framenummer == otherFiets.framenummer;
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-            return false;
         }
+        return gelijkeObjecten;
     }
 }

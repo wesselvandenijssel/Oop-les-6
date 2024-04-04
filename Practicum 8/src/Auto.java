@@ -15,15 +15,18 @@ public class Auto extends Voertuig {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+    public boolean equals(Object andereObject){
+        boolean gelijkeObjecten = false;
 
-        Auto otherAuto = (Auto) obj;
+        if(andereObject instanceof Auto){
+            Auto andereAuto = (Auto) andereObject;
 
-        // Vergelijk alle attributen, inclusief het kenteken
-        return nieuwprijs == otherAuto.nieuwprijs &&
-                bouwjaar == otherAuto.bouwjaar &&
-                Objects.equals(kenteken, otherAuto.kenteken);
+            if (super.equals(andereAuto) &&
+                    this.kenteken.equals(andereAuto.kenteken)){
+                gelijkeObjecten = true;
+            }
+
+        }
+        return gelijkeObjecten;
     }
 }
